@@ -1,0 +1,29 @@
+
+#PF-Tryout
+
+def find_new_salary(current_salary,job_level):
+    if(job_level==3 or job_level==4 or job_level==5):
+        if(job_level==3):
+            new_salary=current_salary*1.15
+        elif(job_level==4):
+            new_salary=current_salary*1.07
+        else:
+            new_salary=current_salary*1.05
+    else:
+        new_salary=current_salary
+    return new_salary
+
+# provide different values for current_salary and job_level and test yor program
+new_salary=find_new_salary(10000,0)
+print(new_salary)
+
+
+'''
+Alternative-
+def find_new_salary(current_salary,job_level):
+    job_level_list=[3,4,5]
+    hike_list=[1.15,1.07,1.05]
+    if job_level in job_level_list:
+        return current_salary*hike_list[job_level_list.index(job_level)]
+    return current_salary
+'''
