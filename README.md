@@ -1,5 +1,4 @@
 # Infosys-Training
 
 Assignments of Generic Training(only) are included.
-DO NOT directly jump over to solution. 
-Try as much as you can first and then see the solutions.
+DO NOT directly jump over to solution. Try as much as you can first and then see the solutions.
