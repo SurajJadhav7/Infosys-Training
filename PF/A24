@@ -1,0 +1,12 @@
+#PF-Assgn-24
+def form_triangle(num1,num2,num3):
+    if(num1<num2+num3 and num2<num1+num3 and num3<num2+num1):
+        success="Triangle can be formed"
+        return success
+    else:
+        failure="Triangle can't be formed"
+        return failure
+num1=3
+num2=3
+num3=5
+print(form_triangle(num1, num2, num3))
