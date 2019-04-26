@@ -1,0 +1,16 @@
+#PF-Assgn-26
+
+def solve(heads,legs):
+    error_msg="No solution"
+    chicken_count=0
+    rabbit_count=0
+    if(legs%2==0):
+        rabbit_count=(legs/2)-heads
+        chicken_count=heads-rabbit_count
+        if(chicken_count>=0 and rabbit_count>=0):
+            print(int(chicken_count),int(rabbit_count))
+        else:
+            print(error_msg)
+    else:
+            print(error_msg)
+solve(20,10)
