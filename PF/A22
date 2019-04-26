@@ -1,0 +1,11 @@
+#PF-Assgn-22
+def find_leap_years(given_year):
+    list_of_leap_years=[]
+    g=given_year
+    while(len(list_of_leap_years)<15):
+        if((g%4==0and g%100!=0)or g%400==0):
+            list_of_leap_years.append(g) 
+        g+=1
+    return list_of_leap_years
+list_of_leap_years=find_leap_years(1996)
+print(list_of_leap_years)
