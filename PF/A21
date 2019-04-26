@@ -1,0 +1,49 @@
+#PF-Tryout
+
+def generate_next_date(day,month,year):
+    #Start writing your code here
+    next_month=0
+    next_year=year
+    if(day==28 and month==2):
+        if(year%400==0):
+            next_day=29
+            next_month=2
+        else:
+            if(year%100!=0 and year%4==0):
+                next_day=29
+                next_month=2
+            else:
+                next_day=1
+                next_month=3
+    else:
+        if(day==31 and month==12):
+            next_day=1
+            next_month=1
+            next_year=year+1
+        else:
+            next_year=year
+            if(month==4 or month==6 or month==9 or month==11):
+                if(day==30):
+                    next_day=1 
+                    next_month=month+1
+                else:
+                    next_day=day+1
+                    next_month=month
+            elif(month==2):
+                if(day==29):
+                    next_day=1 
+                    next_month=month+1
+                else:
+                    next_day=day+1
+                    next_month=month
+            else:
+                if(day==31):
+                    next_day=1 
+                    next_month=month+1
+                else:
+                    next_day=day+1
+                    next_month=month
+    print(next_day,"-",next_month,"-",next_year)
+
+
+generate_next_date(31,12,1900)
