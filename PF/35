@@ -1,0 +1,42 @@
+#PF-Assgn-35
+
+#Global variable
+list_of_marks=(12,18,25,24,2,5,18,20,20,21)
+
+def find_more_than_average():
+    s=0
+    c=0
+    for i in list_of_marks:
+        s+=i 
+    for j in list_of_marks:
+        if j>s/len(list_of_marks):
+            c+=1
+    return (c*100/len(list_of_marks))
+
+def sort_marks():
+    sort_list=[]
+    sort_list1=[]
+    temp=0
+    sort_list=list(list_of_marks)
+    for i in range(0,len(sort_list)):
+        for j in range (i+1,len(sort_list)):
+            if sort_list[i]>sort_list[j]:
+               temp=sort_list[j]
+               sort_list[j]=sort_list[i]
+               sort_list[i]=temp
+        sort_list1.append(sort_list[i])
+    return sort_list1
+                
+def generate_frequency():
+    list1=[]
+    for i in range(0,26):
+        count=0
+        for j in range(0,len(list_of_marks)):
+            if i==list_of_marks[j]:
+                count+=1
+        list1.append(count)
+    return list1
+        
+print(find_more_than_average())
+print(generate_frequency())
+print(sort_marks())
