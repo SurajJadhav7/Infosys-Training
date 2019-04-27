@@ -1,1 +1,13 @@
 
+#PF-Assgn-31
+def check_palindrome(word):
+    status=True
+    a=word[::-1]
+    if (word!=a):
+        status=False
+    return status
+status=check_palindrome("m")
+if(status):
+    print("word is palindrome")
+else:
+    print("word is not palindrome")
