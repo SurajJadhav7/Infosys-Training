@@ -1,0 +1,17 @@
+#PF-Assgn-33
+
+def find_common_characters(msg1,msg2):
+    msg3=''
+    for i in msg1:
+        for j in msg2:
+            if(i==j):
+                if i not in msg3:
+                    msg3+=i
+    if(len(msg3)==0):
+        return -1
+    else:
+        return msg3
+msg1='1ABC453'
+msg2="145BC"
+common_characters=find_common_characters(msg1,msg2)
+print(common_characters)
