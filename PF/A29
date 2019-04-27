@@ -1,1 +1,15 @@
-
+#PF-Assgn-29
+def calculate(distance,no_of_passengers):
+    profit=0
+    mileage=10
+    price_per_ticket=80
+    price_per_litre=70
+    profit=(no_of_passengers*price_per_ticket)-((distance/mileage)*price_per_litre)
+    if(profit<0):
+        return -1
+    else:
+        return profit
+#Provide different values for distance, no_of_passenger and test your program
+distance=20
+no_of_passengers=50
+print(calculate(distance,no_of_passengers))
