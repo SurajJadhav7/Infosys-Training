@@ -1,0 +1,15 @@
+#PF-Assgn-30
+
+def encode(message):
+    counter=1
+    enc=""
+    message+=" "
+    for i in range(0,len(message)-1):
+        if (message[i]==message[i+1]):
+           counter+=1
+        else:
+            enc=enc+str(counter)+message[i]
+            counter=1
+    return enc
+encoded_message=encode("M")
+print(encoded_message)
