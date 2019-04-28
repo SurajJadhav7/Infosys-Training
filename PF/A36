@@ -1,0 +1,16 @@
+#PF-Assgn-36
+def create_largest_number(number_list):
+    temp=0
+    aaa=""
+    for i in range(0,len(number_list)):
+        for j in range(i+1,len(number_list)):
+            if number_list[i]<number_list[j]:
+                temp=number_list[j]
+                number_list[j]=number_list[i]
+                number_list[i]=temp
+        aaa+=str(number_list[i])
+    return int(aaa)
+     
+number_list=[98,10,22]
+largest_number=create_largest_number(number_list)
+print(largest_number)
