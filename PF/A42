@@ -1,0 +1,44 @@
+#PF-Assgn-42
+def find_factors(num):
+    #Accepts a number and returns the list of all the factors of a given number
+    factors = []
+    for i in range(2,(num+1)):
+        if(num%i==0):
+            factors.append(i)
+    return factors
+
+def is_prime(num, i):
+    if(i==1):
+        return True
+    elif(num%i==0):
+        return False;
+    else:
+        return(is_prime(num,i-1))
+
+def find_largest_prime_factor(list_of_factors):
+    #Accepts the list of factors and returns the largest prime factor
+    for i in range(0,len(list_of_factors)):
+        for j in range(1,len(list_of_factors)):
+            if (list_of_factors[i]<list_of_factors[j]):
+                if (is_prime(list_of_factors[j], list_of_factors[j]//2)==True):
+                    list_of_factors[0]=list_of_factors[j]
+    return list_of_factors[0]
+    
+def find_f(num):
+    #Accepts the number and returns the largest prime factor of the number
+    a=find_factors(num)
+    b=[]
+    for i in a:
+        if (is_prime(i, i//2))==True:
+            b.append(i)
+    a=find_largest_prime_factor(b)
+    return a
+
+def find_g(num):
+    sum1=0
+    for i in range(num,num+9,1):
+        sum1+=find_f(i)
+    return sum1
+#Note: Invoke function(s) from other function(s), wherever applicable.
+
+print(find_g(12))
