@@ -16,3 +16,25 @@ def check_double(number):
     else:
         return False
 print(check_double(106))
+
+
+
+
+
+
+'''
+Alternative-
+
+#PF-Assgn-38
+
+def check_double(number):
+    d=str(2*int(number))
+    a=str(number)
+    if(set(a)==set(d)):
+         return True
+    return False
+print(check_double(106))
+
+
+
+'''
