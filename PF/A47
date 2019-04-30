@@ -1,1 +1,33 @@
-
+#PF-Assgn-47
+def encrypt_sentence(sentence):
+    a=sentence.split(' ')
+    z=[]
+    r=''
+    for i in range(0,len(a)):
+        if (i%2==0):
+            a[i]=a[i][::-1]
+            z.append(a[i])
+        else:
+            b=list(a[i])
+            v=[]
+            c=[]
+            f=''
+            vowels=['a','e','i','o','u']
+            for j in range(0,len(b)):
+                if b[j] in vowels:
+                    v.append(b[j])
+                else:
+                    c.append(b[j])
+            for k in range(0,len(v)):
+                c.append(v[k])
+            for l in range(0,len(c)):
+                f+=c[l]
+            z.append(f)
+    r+=z[0]
+    for q in range(1,len(z)):
+        r+=' '+z[q]
+    return r
+              
+sentence="good day"
+encrypted_sentence=encrypt_sentence(sentence)
+print(encrypted_sentence)
