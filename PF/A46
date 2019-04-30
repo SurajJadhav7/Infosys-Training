@@ -1,1 +1,27 @@
 
+#PF-Assgn-46
+
+def nearest_palindrome(number):
+    number=str(number)
+    a=list(number)
+    c=len(a)
+    b=''
+    if c==1:
+        b=1+int(number)
+    else:
+        for i in range(0,len(a)):
+            if a[i]==a[-1-i]:
+                continue
+            else:
+                a[-1-i]=a[i]
+        for i in range(0,len(a)):
+            b+=str(a[i])
+        l=len(number)
+        b=int(b)
+        ii=int(number)
+        if b<=ii:
+            b=nearest_palindrome(ii+1)
+    return b
+
+number=0
+print(nearest_palindrome(number))
