@@ -1,1 +1,30 @@
 
+#PF-Assgn-48
+
+def find_correct(word_dict):
+    count1=0
+    count2=0
+    count3=0
+    a=[]
+    for i in word_dict.keys():
+        j=word_dict.get(i)
+        if i==j:
+            count1+=1
+        elif len(i)!=len(j):
+            count3+=1
+        else:
+            temp_count=0
+            for k in range(0,len(i)):
+                if i[k]!=j[k]:
+                    temp_count+=1
+            if temp_count>2:
+                count3+=1
+            else:
+                count2+=1
+    a.append(count1)
+    a.append(count2)
+    a.append(count3)
+    return a
+            
+word_dict={"THEIR": "THEIR","BUSINESS":"BISINESS","WINDOWS":"WINDMILL","WERE":"WEAR","SAMPLE":"SAMPLE"}
+print(find_correct(word_dict))
