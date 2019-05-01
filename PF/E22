@@ -1,0 +1,17 @@
+#PF-Exer-22
+
+def generate_ticket(airline,source,destination,no_of_passengers):
+    ticket_number_list=[]
+    a=101
+    if (no_of_passengers>=5):
+        for i in range (0,5):
+            b=int(100+no_of_passengers-4)
+            ticket_number_list.append((airline+':'+source[0:3]+':'+destination[0:3]+':'+str(b)))
+            no_of_passengers+=1
+    else:
+        for i in range (0,no_of_passengers):
+            ticket_number_list.append((airline+':'+source[0:3]+':'+destination[0:3]+':'+str(a)))
+            a=int(a)+1
+    return ticket_number_list
+
+print(generate_ticket("AI","Bangalore","London",4))
