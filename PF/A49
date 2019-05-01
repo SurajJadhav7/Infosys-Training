@@ -1,0 +1,8 @@
+#PF-Tryout
+#Start writing your code here
+import random
+a=random.randrange(1,11)
+if (a<7):
+    print('Head')
+else:
+    print('Tail')
