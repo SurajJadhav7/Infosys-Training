@@ -1,0 +1,30 @@
+#PF-Prac-13
+def close_number(num1,num2,num3):
+    l=[num1,num2,num3]
+    for i in range(3):
+        l=[num1,num2,num3]
+        if (l[i]+1 in l):
+            a=l[i]
+            b=l[i]+1
+            l.remove(a)
+            l.remove(b)
+            if abs(l[0]-a)>=2 and abs(l[0]-b)>=2:
+                return True
+        elif (l[i]-1 in l):
+            a=l[i]
+            b=l[i]-1
+            l.remove(a)
+            l.remove(b)
+            if abs(l[0]-a)>=2 and abs(l[0]-b)>=2:
+                return True
+        else:
+            a1=l[i]
+            l.remove(l[i])
+            if (a1 in l):
+                a=l[i]
+                l.remove(a)
+                if abs(l[0]-a)>=2:
+                    return True
+    return False
+    
+print(close_number(20,15,10))
