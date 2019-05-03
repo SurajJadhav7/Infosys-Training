@@ -1,0 +1,18 @@
+#PF-Exer-28
+                                              
+#This method accepts the name of winner of each match of the day
+def find_winner_of_the_day(*match_tuple):
+    c=0
+    c1=0
+    for i in match_tuple:
+        if i=="Team1":
+            c+=1
+        else:
+            c1+=1
+    if c>c1:
+        return "Team1"
+    else:
+        return "Team2"
+#Invoke the function with each of the print statements given below
+#print(find_winner_of_the_day("Team1","Team2","Team1"))
+print(find_winner_of_the_day("Team1","Team2","Team2","Team1","Team2"))
