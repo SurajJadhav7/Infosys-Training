@@ -1,0 +1,17 @@
+#PF-Prac-12
+from itertools import product
+def generate_sentences(subjects,verbs,objects):
+    sentence_list=[]
+    x=list(product(subjects,verbs,objects))
+    for i in x:
+        s=''
+        for j in i:
+            s+=j+' '
+        s=s[:-1]
+        sentence_list.append(s)
+    return sentence_list
+
+subjects=["I","You"]
+verbs=["love", "play"]
+objects=["Hockey","Football"]
+print(generate_sentences(subjects,verbs,objects))
