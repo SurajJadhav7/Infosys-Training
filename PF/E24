@@ -1,0 +1,15 @@
+//PF-Exer-24
+//This verification is based on string match.
+
+package main
+
+import ("fmt")
+var b int=0
+func find_square(b){
+    var c int=b*b
+    return (c)
+}
+
+func main() {
+    print (find_square(10))
+}
