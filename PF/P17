@@ -27,7 +27,7 @@ def get_trains_for_day(day_of_run):
         return [x['train_no'] for\
                  x in train_list \
                  if day_of_run in x["days_of_run"]]
-
+                 
 def get_total_fare(train_no,passenger_dict):
     fare=0
     for i in train_list:
