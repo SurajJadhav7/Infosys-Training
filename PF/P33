@@ -1,0 +1,35 @@
+#PF-Prac-33
+def integer_to_english(number):
+    n=number
+    if 1<=n<=1000:
+        d1={1:'one',2:'two',3:'three',4:'four',\
+        5:'five',6:'six',7:'seven',8:'eight',9:'nine',\
+        10:'ten',11:'eleven',12:'twelve',13:'thirteen',\
+        15:'fifteen',20:'twenty',30:'thirty',\
+        50:'fifty',60:'sixty',70:'seventy',80:'eighty',\
+        90:'ninety',100:'hundred',1000:'one thousand'}
+        if n in d1.keys():
+            return d1[n]
+        else:
+            if n//100==0:
+                if 13<n<20:
+                    return (d1[n%10]+'teen')
+                elif 21<n<99:
+                    return (d1[n//10]+' '+d1[n%10])
+            else:
+                n1=n%100
+                if n1==0:
+                    return d1[n//100]+' '+d1[100]
+                if n1 in d1.keys():
+                    return d1[n//100]+' '+d1[100]+' and '+d1[n1]
+                elif 13<n1<20:
+                    a=str(d1[n1%10]+'teen')
+                elif 21<n1<99:
+                    a=str(d1[(n1-(n1%10))]+' '+d1[n1%10])
+                return d1[n//100]+' '+d1[100]+' and '+a
+    else:
+        return -1
+
+
+number=212
+print(integer_to_english(number))
