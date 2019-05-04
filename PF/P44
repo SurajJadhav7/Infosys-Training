@@ -1,0 +1,33 @@
+#PF-Prac-44
+
+def check_correct_depth(input_list, depth=0):
+    l=input_list
+    c=0
+    for i in l:
+        if i in ['(',')']:
+            c+=1
+        else:
+            if c>=int(i):
+                c=0
+            else:
+                return False
+    c=0
+    for i in l[::-1]:
+        if i in ['(',')']:
+            c+=1
+        else:
+            if c>=int(i):
+                c=0
+            else:
+                return False
+    return True
+
+input_list1=list('(1)')
+input_list2=list('(2)') 
+input_list3=list('((2)((3)))') 
+input_list4=list('((2)(3))') 
+input_list5=list('((3)(2))') 
+input_list6=list('(((3)((4))(3))(2)((3)))')
+output=check_correct_depth(input_list6) 
+print("Input list:",input_list6)
+print(output)
