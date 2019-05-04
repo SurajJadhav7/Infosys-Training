@@ -1,0 +1,17 @@
+#PF-Prac-21
+def check_numbers(num1,num2):
+    l1=[x for x in range(num1,num2+1)][::-1]
+    num_list=[]
+    count=0
+    for i in range(len(l1)):
+        for j in range(i+1,len(l1)):
+            if l1[i]%l1[j]==0:
+                num_list.append(l1[i])
+                count+=1
+                break   
+    num_list=set(num_list)
+    return [num_list,count]
+
+num1=2
+num2=20
+print(check_numbers(num1, num2))
