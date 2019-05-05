@@ -1,0 +1,87 @@
+#OOPR-Assgn-22
+class Multiplex:
+    __list_movie_name=["movie1","movie2"]
+    __list_total_tickets=[90,50]
+    __list_last_seat_number=[None,None]
+    __list_ticket_price=[150,200]
+    def __init__(self):
+        self.__seat_numbers=None
+        self.__total_price=None
+    def calculate_ticket_price(self,movie_index,number_of_tickets):
+        self.__total_price=Multiplex.__list_ticket_price[movie_index]*number_of_tickets
+    def check_seat_availability(self,movie_index,number_of_tickets):
+        if(Multiplex.__list_total_tickets[movie_index]<number_of_tickets):
+            return False
+        else:
+            return True
+    def get_total_price(self):
+        return self.__total_price
+    def get_seat_numbers(self):
+        return self.__seat_numbers
+    def book_ticket(self, movie_name, number_of_tickets):
+        if movie_name not in Multiplex.__list_movie_name:
+            return 0
+        if len(Multiplex.__list_last_seat_number[0])==4:
+            Multiplex.__list_total_tickets[Multiplex.__list_movie_name.index(movie_name)]-=int(Multiplex.__list_last_seat_number[0][-1])
+        elif len(Multiplex.__list_last_seat_number[0])==5:
+            Multiplex.__list_total_tickets[Multiplex.__list_movie_name.index(movie_name)]-=int(Multiplex.__list_last_seat_number[0][-2:])
+        if not(self.check_seat_availability(Multiplex.__list_movie_name.index(movie_name),number_of_tickets)):
+            return -1
+        else:   
+            self.__seat_numbers=self.generate_seat_number(Multiplex.__list_movie_name.index(movie_name), number_of_tickets)
+            self.calculate_ticket_price(Multiplex.__list_movie_name.index(movie_name), number_of_tickets)
+    def  generate_seat_number(self,movie_index, number_of_tickets):
+        list_seat_numbers=[]
+        seat_number=''
+        for i in range(number_of_tickets):
+            if movie_index==0:
+                if i==0:
+                    if Multiplex.__list_last_seat_number[0] is None:
+                            counter=0
+                    else:
+                        if len(Multiplex.__list_last_seat_number[0])==4:
+                            counter=int(Multiplex.__list_last_seat_number[0][-1])
+                        elif len(Multiplex.__list_last_seat_number[0])==5:
+                            counter=int(Multiplex.__list_last_seat_number[0][-2:])
+                seat_number='M1-'+str(counter+1)
+                counter+=1
+                Multiplex.__list_last_seat_number[0]=seat_number
+                Multiplex.__list_total_tickets[0]-=1
+            elif movie_index==1:
+                if i==0:
+                    if Multiplex.__list_last_seat_number[1] is None:
+                            counter=0
+                    else:
+                        if len(Multiplex.__list_last_seat_number[1])==4:
+                            counter=int(Multiplex.__list_last_seat_number[1][-1])
+                        elif len(Multiplex.__list_last_seat_number[1])==5:
+                            counter=int(Multiplex.__list_last_seat_number[1][-2:])
+                seat_number='M2-'+str(counter+1)
+                counter+=1
+                Multiplex.__list_last_seat_number[1]=seat_number
+                Multiplex.__list_total_tickets[1]-=1
+            list_seat_numbers.append(seat_number)
+        return list_seat_numbers
+    
+
+booking1=Multiplex()
+status=booking1.book_ticket("movie1",10)
+if(status==0):
+    print("invalid movie name")
+elif(status==-1):
+    print("Tickets not available for movie-1")
+else:
+    print("Booking successful")
+    print("Seat Numbers :", booking1.get_seat_numbers())
+    print("Total amount to be paid:", booking1.get_total_price())
+print("-----------------------------------------------------------------------------")
+booking2=Multiplex()
+status=booking2.book_ticket("movie2",6)
+if(status==0):
+    print("invalid movie name")
+elif(status==-1):
+    print("Tickets not available for movie-2")
+else:
+    print("Booking successful")
+    print("Seat Numbers :", booking2.get_seat_numbers())
+    print("Total amount to be paid:", booking2.get_total_price())
