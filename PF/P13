@@ -28,3 +28,16 @@ def close_number(num1,num2,num3):
     return False
     
 print(close_number(20,15,10))
+
+'''
+...............Alternative................
+#PF-Prac-13
+def close_number(num1,num2,num3):
+    l=[num1,num2,num3]
+    l.sort()
+    if (l[1]-l[0]<2 and l[2]-l[1]>=2)\
+     or (l[1]-l[0]>=2 and l[2]-l[1]<2):
+        return True
+    return False
+print(close_number(5,4,2))
+'''
