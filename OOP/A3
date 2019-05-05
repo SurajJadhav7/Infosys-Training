@@ -1,0 +1,19 @@
+#OOPR-Assgn-3
+#Done
+class Customer:
+    def __init__(self):
+        self.customer_name=None
+        self.bill_amount=None 
+    def purchases(self):
+        pass
+    def pays_bill(self,amount):
+        pass
+class Item:
+    def __init__(self):
+        self.description=None
+        self.price_per_unit=None
+        self.item_id=None
+class Employee:
+    def __init__(self):
+        self.designation=None
+        self.emp_name=None
