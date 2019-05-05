@@ -1,0 +1,18 @@
+#PF-Prac-45
+
+def longest_common_substring(string1, string2):
+    string11=''
+    t=[]
+    l=[]
+    for i in range(len(string1)):
+        for j in range(i+1, len(string2)+1):
+            if string1[i:j] in string2:
+                t.append(string1[i:j])
+                l.append(len(string1[i:j]))
+    string11=t[l.index(max(l))]
+    return string11
+
+output=longest_common_substring("discatenation","concatenation")
+print("The longest overlap of characters between string1 and string2:",output)
+output1=longest_common_substring("assured","measured")
+print("The longest overlap of characters between string1 and string2:",output1)
