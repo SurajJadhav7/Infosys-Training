@@ -1,0 +1,62 @@
+#OOPR-Assgn-25
+#Done
+class FruitInfo:
+    __fruit_name_list=["Apple",'Guava','Orange','Grape',"Sweet Lime"]
+    __fruit_price_list=[200,80,70,110,60]
+    @staticmethod
+    def get_fruit_name_list():
+        return FruitInfo.__fruit_name_list
+    @staticmethod
+    def get_fruit_price_list():
+        return FruitInfo.__fruit_price_list
+    @staticmethod
+    def get_fruit_price(fruit_name):
+        if fruit_name in FruitInfo.__fruit_name_list:
+            for i in FruitInfo.__fruit_name_list:
+                if i==fruit_name:
+                    return FruitInfo.__fruit_price_list[
+                        FruitInfo.__fruit_name_list.index(i)]
+        return -1
+class Purchase:
+    __counter=101
+    def __init__(self,customer,fruit_name,quantity):
+        self.__purchase_id=None
+        self.__customer=customer
+        self.__fruit_name=fruit_name
+        self.__quantity=quantity
+    def get_purchase_id(self):
+        return self.__purchase_id
+    def get_customer(self):
+        return self.__customer
+    def get_quantity(self):
+        return self.__quantity
+    def calculate_price(self):
+        if FruitInfo.get_fruit_price(self.__fruit_name)!=-1:
+            final_fruit_price=0
+            for i in FruitInfo.get_fruit_name_list():
+                if i==self.__fruit_name:
+                    final_fruit_price=\
+                    FruitInfo.get_fruit_price(self.__fruit_name)*\
+                    self.__quantity
+                    if FruitInfo.get_fruit_price(self.__fruit_name)\
+                    ==max(FruitInfo.get_fruit_price_list())\
+                     and self.__quantity>1:
+                        final_fruit_price=0.98*final_fruit_price
+                    elif FruitInfo.get_fruit_price(self.__fruit_name)\
+                    ==min(FruitInfo.get_fruit_price_list())\
+                     and self.__quantity>=5:
+                        final_fruit_price=0.95*final_fruit_price
+                    if self.__customer.get_cust_type()=='wholesale':
+                        final_fruit_price=0.9*final_fruit_price
+                    self.__purchase_id='P'+str(Purchase.__counter)
+                    Purchase.__counter+=1
+            return final_fruit_price
+        return -1
+class Customer:
+    def __init__(self,customer_name,cust_type):
+        self.__customer_name=customer_name
+        self.__cust_type=cust_type
+    def get_customer_name(self):
+        return self.__customer_name
+    def get_cust_type(self):
+        return self.__cust_type
