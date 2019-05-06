@@ -1,0 +1,49 @@
+#OOPR-Assgn-24
+#Done
+class Apparel:
+    counter=100
+    def __init__(self,price,item_type):
+        self.__price=price
+        self.__item_type=item_type
+        self.__item_id=None
+        if self.__item_type=='Cotton':
+            self.__item_id='C'+str(Apparel.counter+1)
+        elif self.__item_type=='Silk':
+            self.__item_id='S'+str(Apparel.counter+1)
+        Apparel.counter+=1
+    def get_price(self):
+        return self.__price
+    def get_item_type(self):
+        return self.__item_type
+    def get_item_id(self):
+        return self.__item_id
+    def set_price(self, price):
+        self.__price = price
+    def calculate_price(self):
+        self.__price*=1.05
+class Cotton(Apparel):
+    def __init__(self,price,discount):
+        super().__init__(price,item_type='Cotton')
+        self.__discount=discount
+        #self.set_price(price)
+    def get_discount(self):
+        return self.__discount
+    def calculate_price(self):
+        super().calculate_price()
+        self.set_price(1.05*(self.get_price()-(self.get_price()\
+                                               *self.__discount*0.01)))
+class Silk(Apparel):
+    def __init__(self,price):
+        super().__init__(price,item_type='Silk')
+        self.__points=0
+        #self.set_price(price)
+    def get_points(self):
+        return self.__points
+    def calculate_price(self):
+        super().calculate_price()
+        if self.get_price()>10000:
+            self.__points=10
+        else:
+            self.__points=3
+        self.set_price(1.1*self.get_price())
+    
