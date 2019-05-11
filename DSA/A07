@@ -1,0 +1,25 @@
+#DSA-Assgn-7
+from DataStructures import LinkedList
+
+def remove_duplicates(duplicate_list):
+    temp=duplicate_list.get_head()
+    list1=[]
+    while temp is not None:
+        list1.append(temp.get_data())
+        temp=temp.get_next()
+    list2=list(set(list1))
+    list2.sort()
+    duplicate_list=LinkedList()
+    for i in list2:
+        duplicate_list.add(i)
+    return duplicate_list
+
+#Add different values to the linked list and test your program
+duplicate_list=LinkedList()
+duplicate_list.add(30)
+duplicate_list.add(40)
+duplicate_list.add(40)
+duplicate_list.add(40)
+duplicate_list.add(40)
+
+remove_duplicates(duplicate_list)
