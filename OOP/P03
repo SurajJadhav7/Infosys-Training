@@ -1,0 +1,54 @@
+#OOPR-Prac-3
+#Note: Verification is not available for this problem, however you can submit your code
+
+#Start writing you code here
+class Customer:
+    def __init__(self,customer_id,customer_type):
+        self.__customer_id=customer_id
+        self.__customer_type=customer_type
+        self.__discount_eligibility=None
+        self.__booking_id=None
+        self.__amount=None
+    def book_tickets(self,movie_id,number_of_tickets):
+        self.check_discount_eligibility()
+        if self.__discount_eligibility==True:
+            discount=5
+        else:
+            discount=0
+        Mcinema.process_ticket(movie_id, number_of_tickets, discount)
+    def check_discount_eligibility(self):
+        if self.__customer_type=='P':
+            self.__discount_eligibility=True
+        else:
+            self.__discount_eligibility=False
+        return self.__discount_eligibility
+class Mcinema(Customer):
+    __movie_dict={'M1':250,'M2':150}
+    __ticket_dict={}
+    __booking_id=999
+    @staticmethod
+    def process_ticket(movie_id,number_of_tickets,discount):
+        total=0
+        if movie_id in Mcinema.__movie_dict.keys():
+            if number_of_tickets<Mcinema.__movie_dict[movie_id]:
+                Mcinema.__movie_dict[movie_id]-=number_of_tickets
+                bid=Mcinema.__booking_id+1
+                Mcinema.__booking_id+=1
+                Mcinema.__ticket_dict.update({bid:number_of_tickets})
+                if movie_id=='M1':
+                    total=number_of_tickets*200
+                elif movie_id=='M2':
+                    total=number_of_tickets*100
+                total*=(1-discount*0.01)
+                return total
+        return -1
+            
+    @staticmethod
+    def get_movie_dict():
+        return Mcinema.__movie_dict
+    @staticmethod
+    def get_ticket_dict():
+        return Mcinema.__ticket_dict
+
+c1=Customer('ASas','P')
+print(Mcinema.process_ticket('M1', 2, 5))
