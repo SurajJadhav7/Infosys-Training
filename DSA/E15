@@ -1,0 +1,16 @@
+#DSA-Exer-15
+
+def pattern_search(text, pattern):
+    result=0
+    for i in range(len(text)-len(pattern)+1):
+        if text[i:].startswith(pattern):
+            result+=1
+    return result
+
+#Use different values for text and pattern and test your program
+text = "MESMERIZING MESSAGE"
+pattern = "MES"
+result=pattern_search(text, pattern)
+print("The given text:",text)
+print("Pattern:",pattern)
+print("No. of occurrences of the pattern :",result)
