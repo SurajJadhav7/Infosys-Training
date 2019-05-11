@@ -1,0 +1,29 @@
+#DSA-Assgn-14
+
+
+from DataStructures import Queue
+
+def check_numbers(number_queue):
+    solution_queue1=Queue(10)
+    l1=[]
+    while not number_queue.is_empty():
+        a=number_queue.dequeue()
+        b=True
+        for i in range(2,11):
+            if a%i!=0:
+                b=False
+                break
+        l1.append(a) if b==True else None
+    [solution_queue1.enqueue(i) for i in l1]
+    return solution_queue1
+
+#Add different values to the queue and test your program
+number_queue=Queue(5)
+number_queue.enqueue(13983)
+number_queue.enqueue(10080)
+number_queue.enqueue(7113)
+number_queue.enqueue(2520)
+number_queue.enqueue(2500)
+check_numbers(number_queue)
+
+#         b=[True if a%i==0 else None for i in range(2,11)][0]
