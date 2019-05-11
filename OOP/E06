@@ -1,0 +1,24 @@
+#OOPR-Exer-6
+#Start writing your code here
+class Vehicle:
+    def __init__(self):
+        self.mileage=None
+        self.fuel_left=None
+    
+    def identify_distance_travelled(self,initial_fuel,fuel_left,mileage):
+        return ((self.initial_fuel-self.fuel_left)*self.mileage)
+    
+    def identify_distance_that_can_be_travelled(self,fuel_left,mileage):
+        if self.fuel_left>5:
+            return ((self.fuel_left-5)*self.mileage)
+        else:
+            return 0
+        #return distance
+#print(Vehicle().identify_distance_that_can_be_travelled(8, 20))
+
+v1=Vehicle()
+v1.mileage=22
+v1.fuel_left=15
+v1.initial_fuel=50
+print(v1.identify_distance_travelled(50, 15, 22))
+print(v1.identify_distance_that_can_be_travelled(15, 22))
