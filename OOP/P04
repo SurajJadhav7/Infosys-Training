@@ -1,0 +1,33 @@
+#OOPR-Prac-4
+#Start writing you code here
+
+class Tollbooth:
+    def __init__(self):
+        self.__no_of_vehicle=0
+        self.__total_amount=0
+    def get_no_of_vehicle(self):
+        return self.__no_of_vehicle
+    def get_total_amount(self):
+        return self.__total_amount
+    def calculate_amount(self,vehicle_type):
+        d1={'Car':70,'Bus':100,'Truck':150,'Any other type of vehicle':70}
+        v1={}
+        for k,v in d1.items():
+            v1.update({k.upper():v})
+        for k,v in v1.items():
+            if k==vehicle_type.upper():
+                self.__total_amount+=v
+    def count_vehicle(self):
+        self.__no_of_vehicle+=1
+    def collect_toll(self,owner_type,vehicle_type):
+        if owner_type=='VIP':
+            self.count_vehicle()
+        else:
+            self.calculate_amount(vehicle_type)
+            self.count_vehicle()
+a=Tollbooth()
+a.collect_toll('a', 'Car')
+print(a.get_no_of_vehicle())
+
+
+        
