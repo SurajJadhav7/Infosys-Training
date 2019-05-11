@@ -1,0 +1,23 @@
+#OOPR-Prac-1
+#Start writing you code here
+class Purchase:
+    list_of_items=[x.upper() for x in ['Cake', 'Soap', 'Jam', 'Cereal', 'Hand_Sanitizer', 'Biscuits', 'Bread']]
+    list_of_count_of_each_item_sold=[0]*8
+    def __init__(self):
+        self.__items_purchased=[]
+        self.__item_on_offer=None
+    def get_items_purchased(self):
+        return self.__items_purchased
+    def get_item_on_offer(self):
+        return self.__item_on_offer
+    def provide_offer(self):
+        Purchase.list_of_count_of_each_item_sold[4]+=1
+        self.__item_on_offer="HAND SANITIZER"
+    def sell_items(self,list_of_items_to_be_purchased):
+        for i in list_of_items_to_be_purchased:
+            Purchase.list_of_count_of_each_item_sold[Purchase.list_of_items.index(i)]+=1
+            self.__items_purchased.append(i)
+            if i.upper()=='SOAP':
+                self.provide_offer()
+    def find_total_items_sold(self):
+        return sum(Purchase.list_of_count_of_each_item_sold)
