@@ -1,0 +1,54 @@
+#DSA-Assgn-8
+
+from DataStructures import LinkedList
+
+class BakeHouse:
+    def __init__(self):
+        self.__occupied_table_list=[]
+    def get_occupied_table_list(self):
+        return self.__occupied_table_list
+    def allocate_table(self):
+        temp=self.__occupied_table_list.get_head()
+        list1=[]
+        while temp is not None:
+            list1.append(temp.get_data())
+            temp=temp.get_next()
+        for i in range(1,11):
+            if i not in list1:
+                self.__occupied_table_list.insert(i, i-1)
+                break
+
+    def deallocate_table(self,table_number):
+        self.__occupied_table_list.delete(table_number)
+    
+bakehouse=BakeHouse()
+#Invoke the methods of BakeHouse class and test the program
+
+
+'''
+...................Alternative........................
+#DSA-Assgn-8
+
+#This assignment needs DataStructures.py file in your package, you can get it from resources page
+
+from DataStructures import LinkedList
+
+class BakeHouse:
+    def __init__(self):
+        self.__occupied_table_list=LinkedList()
+    def get_occupied_table_list(self):
+        return self.__occupied_table_list
+    def allocate_table(self):
+        temp=self.__occupied_table_list.get_head()
+        while temp is not None:
+            if (temp.get_next().get_data()-temp.get_data())>1:
+                self.__occupied_table_list.insert(temp.get_data()+1,temp.get_data())
+            else:
+                self.__occupied_table_list.add(self.__occupied_table_list.get_tail().get_data()+1)
+            temp==temp.get_next()
+        return self.__occupied_table_list
+    def deallocate_table(self,table_number):
+        self.__occupied_table_list.delete(table_number)
+        return self.__occupied_table_list
+bakehouse=BakeHouse()
+#Invoke the methods of BakeHouse class and test the program'''
