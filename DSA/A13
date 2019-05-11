@@ -1,0 +1,29 @@
+#DSA-Assgn-13
+
+
+from DataStructures import Stack
+
+def change_smallest_value(number_stack):
+    s1=[]
+    while not number_stack.is_empty():
+        a=number_stack.pop()
+        s1.append(a)
+    m=min(s1)
+    c=s1.count(m)
+    [s1.remove(m) for i in range(c)]
+    [s1.append(m) for i in range(c)]
+    [number_stack.push(s1[-1-i]) for i in range(len(s1))]
+    return number_stack
+
+#Add different values to the stack and test your program
+number_stack=Stack(8)
+number_stack.push(7)
+number_stack.push(8)
+number_stack.push(5)
+number_stack.push(66)
+number_stack.push(5)
+print("Initial Stack:")
+number_stack.display()
+change_smallest_value(number_stack)
+print("After the change:")
+number_stack.display()
