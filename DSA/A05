@@ -1,0 +1,39 @@
+#DSA-Assgn-5
+
+from DataStructures import LinkedList
+
+def create_new_sentence(word_list):
+    new_sentence=""
+    temp=word_list.get_head()
+    while temp is not None:
+        if temp.get_data() not in ['/','*']:
+            new_sentence+=temp.get_data()
+        else:
+            if new_sentence[-1] is ' ':
+                a=temp.get_next().get_data()
+                temp.get_next().set_data(a.upper())
+            else:
+                new_sentence+=' '
+        temp=temp.get_next()
+    return new_sentence
+
+word_list=LinkedList()
+word_list.add("T")
+word_list.add("h")
+word_list.add("e")
+word_list.add("/")
+word_list.add("*")
+word_list.add("s")
+word_list.add("k")
+word_list.add("y")
+word_list.add("*")
+word_list.add("i")
+word_list.add("s")
+word_list.add("/")
+word_list.add("/")
+word_list.add("b")
+word_list.add("l")
+word_list.add("u")
+word_list.add("e")
+result=create_new_sentence(word_list)
+print(result)
