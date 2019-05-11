@@ -1,0 +1,49 @@
+#OOPR-Prac-7
+#Start writing you code here
+class Employee:
+    __employee_count=1000
+    def __init__(self):
+        self.__employee_id=None
+
+    def get_employee_id(self):
+        return self.__employee_id
+
+    def generate_employee_id(self): 
+        self.__employee_id='E'+str(Employee.employee_count+1)   
+        Employee.employee_count+=1
+class Department:
+    __dep_project_list=[]
+    __employee_dict ={}
+    @staticmethod
+    def add_project(project_list):
+        if len(project_list)<=5:
+            for i in project_list:
+                Department.__dep_project_list.append(i) 
+        else:
+            return -1
+    @staticmethod
+    def add_employee(employee, project_id):
+        if project_id not in Department.__dep_project_list:
+            print(' project is not available in the department')
+            return -1
+        else:
+            if project_id.get_number_of_employees()==10:
+                return -2
+            else:
+                Employee.generate_employee_id()
+                Department.__employee_dict.update({employee.get_employee_id():project_id})
+                Project.update_number_of_employees()
+    
+class Project:
+    def __init__(self,project_id,number_of_employees):
+        self.__project_id=project_id
+        self.__number_of_employees=number_of_employees
+
+    def get_project_id(self):
+        return self.__project_id
+    def get_number_of_employees(self):
+        return self.__number_of_employees
+
+    def update_number_of_employees(self):
+        self.__number_of_employees+=1
+    
