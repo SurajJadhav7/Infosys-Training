@@ -1,0 +1,71 @@
+#DSA-Assgn-17
+
+def find_matches(country_name):
+    list1=[]
+    for i in match_list:
+        if i[0:3]==country_name:
+            list1.append(i)
+    if list1==[]:
+        return None
+    return list1
+
+def max_wins():
+    dict1={'WOR':[],'CHAM':[],'T20':[]}
+    dict2={}
+    for k,v in dict1.items():
+        j=0
+        for i in match_list:
+            a=i.split(':')
+            if k==a[1] and j<=int(a[3]):
+                j=int(a[3])
+        for i in match_list:
+            a=i.split(':')
+            if k==a[1]and j==int(a[3]):
+                if a[0] not in v:
+                    v.append(a[0])
+    f=[i.split(':')[1] for i in match_list]
+    [dict2.update({k:v}) for k,v in dict1.items() if k in f]
+    return dict2
+def find_winner(country1,country2):
+    a1=0
+    a2=0
+    for i in match_list:
+        if i.split(':')[0]==country1:
+            a1+=int(i.split(':')[3])
+    for i in match_list:
+        if i.split(':')[0]==country2:
+            a2+=int(i.split(':')[3])
+    if a1>a2:
+        return country1
+    elif a2>a1:
+        return country2
+    else:
+        return 'Tie'
+#Consider match_list to be a global variable
+match_list=["AUS:CHAM:5:2","AUS:WOR:2:1",\
+"ENG:WOR:2:0","IND:T20:5:3","IND:WOR:2:1",\
+"PAK:WOR:2:0","PAK:T20:5:1","SA:WOR:2:0",\
+"SA:CHAM:5:1","SA:T20:5:0"]
+
+#Pass different values to each function and test your program
+print("The match status list details are:")
+# print(match_list)
+# print(find_matches('AUS'))
+print(max_wins())
+# print(find_winner('ENG', 'AUS'))
+
+'''
+a1=0
+    for k,v in dict1.items():
+        for i in match_list:
+            a=i.split(':')
+            if k==a[1]:
+                if a1<int(a[3]):
+                    a1=int(a[3])
+        for k,v in dict1.items():
+            a=i.split(':')
+            if k==a[1]:
+                for i in match_list:
+                    if a1==int(a[3]) and a[0] not in v:
+                        dict1.update({k:v.append(a[0])})
+'''
