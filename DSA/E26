@@ -1,0 +1,22 @@
+#DSA-Tryout
+
+import sys
+
+sys.setrecursionlimit(10000)   #This is to overcome default python recursion limit
+
+def fibonacci(num):
+    global memo
+    if num in memo.keys():
+        return memo[num]
+    else:
+        if num==0:  
+            memo.update({0:0})
+        elif num==1:
+            memo.update({1:1})
+        else:
+            memo.update({num:fibonacci(num-1)+fibonacci(num-2)})
+    return memo[num]
+memo={}
+print("Fibonacci number:",fibonacci(100))
+
+    
