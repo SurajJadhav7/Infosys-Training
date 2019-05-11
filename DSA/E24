@@ -1,0 +1,19 @@
+#DSA-Exer-24
+
+def make_change(denomination_list, amount):
+    if amount==0:
+        return 0 
+    elif len(denomination_list)==0:
+        return -1
+    elif amount in denomination_list:
+        return 1
+    else:
+        a=amount//max(denomination_list)
+        b=amount%max(denomination_list)
+        denomination_list.remove(max(denomination_list))
+        return a+make_change(denomination_list,b)
+
+#Pass different values to the function and test your program
+amount= 20
+denomination_list = [1,15,10]
+print(make_change(denomination_list, amount))
