@@ -1,0 +1,45 @@
+#OOPR-Prac-8
+#Start writing you code here
+class CabRepository:
+    cab_type_list=['Hatch Back','Sedan','SUV']
+    charge_per_km=[9,12,15]
+    no_of_cars =[2,5,10]
+    
+class CabService:
+    __counter=1000
+    def __init__(self,cab_type, distance_in_kms):
+        self.__cab_type=cab_type
+        self.__service_id=None
+        self.__distance_in_kms=distance_in_kms
+
+    def get_cab_type(self):
+        return self.__cab_type
+    def get_service_id(self):
+        return self.__service_id
+    def get_distance_in_kms(self):
+        return self.__distance_in_kms
+
+    def calculate_waiting_charge(self,waiting_time_mins):
+        if waiting_time_mins>30:
+            return (waiting_time_mins-30)*5
+        return 0
+    
+    def get_cab_charge(self,index):
+        return CabRepository.charge_per_km[index]
+    
+    def booking(self,waiting_time_mins):
+        i=self.check_availability()
+        total=self.get_cab_charge(i)+self.calculate_waiting_charge(waiting_time_mins)
+        if CabRepository.no_of_cars[i]>0:
+            CabRepository.no_of_cars[i]-=1
+            self.__service_id=CabService.__counter+1
+            CabService.__counter+=1
+        else:
+            return -1
+        
+    def check_availability(self):
+        if self.__cab_type in CabRepository.cab_type_list:
+            return CabRepository.cab_type_list.index(self.__cab_type)
+        return -1
+    
+    
