@@ -1,0 +1,22 @@
+#OOPR-Exer-3
+#Start writing your code here
+class Employee():
+    def __init__(self):
+        self.name=None
+        self.age=None
+        self.salary=None
+        
+o1=Employee()
+o2=Employee()
+o1.name='Jack'
+o2.name='Jill'
+o1.age=20
+o2.age=24
+
+print('Name of first object is '+o1.name)
+print('Age of '+o1.name+' is '+str(o1.age))
+print('Name of second object is '+o2.name)
+print('Age of '+o2.name+' is '+str(o2.age))
+
+
+                                                    
