@@ -1,0 +1,12 @@
+#DSA-Assgn-18
+
+def find_unknown_words(text,vocabulary):
+    a=text.split(' ')
+    list1=[i for i in a if i not in vocabulary]
+    if len(list1)==0:
+        return -1
+    return set(list1)
+text="The sun rises in the east and sets in the west."
+vocabulary = ["sun","in","rises","the","east"]
+unknown_words=find_unknown_words(text,vocabulary)
+print("The unknown words in the file are:",unknown_words)
