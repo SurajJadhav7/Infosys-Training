@@ -1,0 +1,53 @@
+#OOPR-Prac-2
+#Start writing you code here
+class Dog:
+    counter=100
+    dog_breed_dict={'Labrador Retriever':5,'German Shepherd':12,'Beagle':10}
+    def __init__(self,breed_list,accessories_required):
+        self.__dog_id_list=[]
+        self.__breed_list=breed_list
+        self.__price=0
+        self.__accessories_required=accessories_required
+    def get_dog_id_list(self):
+        return self.__dog_id_list
+    def get_breed_list(self):
+        return self.__breed_list
+    def get_price(self):
+        return self.__price
+    def get_accessories_required(self):
+        return self.__accessories_required
+    def get_dog_price(self,breed):
+        r=[v for k,v in Dog.dog_breed_dict.items() if k==breed]
+        return r[0]
+    def generate_dog_id(self,breed):
+        Dog.counter+=1
+        return (breed[0]+str(Dog.counter))
+    def validate_breed(self):
+        for i in self.__breed_list:
+            if i not in Dog.dog_breed_dict.keys():
+                return False
+        return True
+    def validate_quantity(self):
+        for i in self.__breed_list:
+            for k,v in Dog.dog_breed_dict.items():
+                if k==i and v<1:
+                    return False
+        return True
+    def calculate_total_price(self):
+        if self.validate_quantity():
+            if self.validate_breed():
+                dict2={'Labrador Retriever':800,'German Shepherd':1230,'Beagle':650}
+                for i in self.__breed_list:
+                    [Dog.dog_breed_dict.update({k:v-1}) for k,v in Dog.dog_breed_dict.items() if k==i]
+                    self.__dog_id_list.append[self.generate_dog_id(i)]
+                    for k,v in dict2.items():
+                        if k==i:
+                            self.__price+=v
+                    if self.__accessories_required:
+                        self.__price+=350
+                    if self.__price>1500:
+                        self.__price*=0.95
+            else:
+                return -1
+        else:
+            return -2
