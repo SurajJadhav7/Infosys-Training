@@ -1,0 +1,3 @@
+INSERT INTO Article
+(ArCode,ArName,Rate,Quantity,Class)
+values('A1001','Mouse',500,0,'C')
