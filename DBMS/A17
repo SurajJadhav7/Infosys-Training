@@ -1,0 +1,3 @@
+INSERT INTO Store
+(StoreName,Location,ManagerName)
+values ('Loyal World','Infy Campus, Mysore','Rohan Kumar')
