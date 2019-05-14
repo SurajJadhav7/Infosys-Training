@@ -1,0 +1,3 @@
+INSERT INTO Supplier 
+(Supplierid,Name,ContactNo,City)
+values('S501','Avaya Ltd',9012345678,'Mysore')
