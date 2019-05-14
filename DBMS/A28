@@ -1,0 +1,1 @@
+select QUOTATIONID,SNAME from quotation where qstatus in ('Accepted','Rejected')
