@@ -1,0 +1,1 @@
+select ORDERID,QUOTATIONID,STATUS from Orders where OrderDate between to_date('1-Dec-2014') and ('1-Jan-2015')
